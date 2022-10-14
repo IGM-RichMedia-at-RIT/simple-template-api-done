@@ -1,0 +1,29 @@
+<!-- This handlebars template contains no actual templated variables -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Movie Search</title>
+</head>
+<body>
+  <div>
+    <h1>Welcome to Movie Search!</h1>
+    
+    <!-- Note that this form makes GET requests to /results. It also
+    will generate the proper query parameters in the following format.
+    
+    /results?title=ENTERED_TITLE&year=ENTERED_YEAR&starring=ENTERED_ACTOR -->
+    <form action="/results" method="GET">
+      <label for="title">Title: </label>
+      <input name="title" type="text" />
+      <label for="year">Year Released: </label>
+      <input name="year" type="number" min="1900" max="2018" />
+      <label for="starring">Starring: </label>
+      <input name="starring" type="text" />
+      <input type="submit" text="Search!" />
+    </form>
+  </div>
+
+  <a href="/getData">View Raw Data</a>
+</body>
+</html>

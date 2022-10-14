@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Results</title>
+  <style>
+    .movie {
+      width: 200px;
+      display: inline-block;
+      vertical-align: top;
+      border: 2px solid black;
+      margin-bottom: 5px;
+      padding-left: 5px;
+    }
+
+    h2 {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+    <a href="/">Return to Search</a>
+    <div>
+      <h2>Search results for:</h2>
+
+      <!-- Handlebars gives us the ability to use if statements. While we
+      shouldn't be adding complex logic to our views, we can use if to
+      have conditional view logic. For example, if I don't have a title in
+      the search object, I don't want the view to simply render "Title:"
+      with nothing after it. -->
+      {{#if search.title}}
+        <span>Title: {{search.title}}</span>
+      {{/if}}
+
+      {{#if search.year}}
+        <span>Year: {{search.year}}</span>
+      {{/if}}
+
+      {{#if search.starring}}
+        <span>Starring: {{search.starring}}</span>
+      {{/if}}
+    </div>
+
+    {{#if movies}}
+      <!-- Handlebars also provides us with a means to iterate over objects
+      and arrays. This loop will loop over the entire provided movie array,
+      and for each movie make a new div. The "this" keyword represents the
+      individual movie on that iteration of the loop. -->
+      {{#each movies}}
+        <div class="movie">
+          <p>Title: {{this.title}}</p>
+          <p>Year: {{this.year}}</p>
+          <p>Cast:</p>
+          <ul>
+            {{#each this.cast}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/each}}
+    </ul>
+    
+    <!-- Here we see an example of an else statement. If the if statement
+    {{#if movies}} doesn't fire, this else will. In this case, if there are
+    no movies, it will instead display "No Results Found". Also notice that
+    the {{/if}} comes AFTER the end of the {{else}}, and that else lives within
+    the if statement -->
+    {{else}}
+      <p>No results found!</p>
+    {{/if}}
+</body>
+</html>
