@@ -40,11 +40,11 @@
       {{/if}}
     </div>
 
+    <!-- Handlebars also provides us with a means to iterate over objects
+    and arrays. This loop will loop over the entire provided movie array,
+    and for each movie make a new div. The "this" keyword represents the
+    individual movie on that iteration of the loop. -->
     {{#if movies}}
-      <!-- Handlebars also provides us with a means to iterate over objects
-      and arrays. This loop will loop over the entire provided movie array,
-      and for each movie make a new div. The "this" keyword represents the
-      individual movie on that iteration of the loop. -->
       {{#each movies}}
         <div class="movie">
           <p>Title: {{this.title}}</p>
@@ -59,10 +59,10 @@
       {{/each}}
     </ul>
     
-    <!-- Here we see an example of an else statement. If the if statement
-    {{#if movies}} doesn't fire, this else will. In this case, if there are
+    <!-- On line 53 we see an example of an else statement. If the if statement
+    {#if movies} doesn't fire, this else will. In this case, if there are
     no movies, it will instead display "No Results Found". Also notice that
-    the {{/if}} comes AFTER the end of the {{else}}, and that else lives within
+    the {/if} comes AFTER the end of the {else}, and that else lives within
     the if statement -->
     {{else}}
       <p>No results found!</p>
