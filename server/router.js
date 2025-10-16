@@ -13,7 +13,7 @@ const router = (app) => {
   app.get('/getData', controllers.getData);
   app.get('/', controllers.index);
 
-  app.get('/*', controllers.notFound);
+  app.get('/*wild', controllers.notFound);
 };
 
 module.exports = router;
